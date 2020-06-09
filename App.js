@@ -9,13 +9,10 @@ export default class App extends React.Component {
     super(props)
 
     this.state = {
-      region: {
-        latitude: 37.78225,
-        longitude: -122.4324,
-        latitudeDelta: 0.992,
-        longitudeDelta: 0.0421
-      }
+      region: null,
     }
+
+    this._getLocationAsync();
   }
 
   _getLocationAsync = async () => {
