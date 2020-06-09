@@ -1,19 +1,58 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import MapView from 'react-native-maps';
+import * as Permissions from 'expo-permissions';
+import * as Location from 'expo-location';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+export default class App extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      region: {
+        latitude: 37.78225,
+        longitude: -122.4324,
+        latitudeDelta: 0.992,
+        longitudeDelta: 0.0421
+      }
+    }
+  }
+
+  _getLocationAsync = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION)
+      if (status !== 'granted') 
+        console.log('Permission to access location denied')
+
+    let location = await Location.getCurrentPositionAsync({enableHighAccuracy: true })
+    let region = {
+      latitude: location.coords.latitude,
+      longitude: location.coords.longitude,
+      latitudeDelta: 0.045,
+      longitudeDelta: 0.045
+    }
+    
+    this.setState({ region: region })
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>HomeScreen</Text>
+        <MapView
+          initialRegion={this.state.region}
+          showsUserLocation={true}
+          showsCompass={true}
+          rotateEnabled={false}
+          style={{flex: 1}}
+        />
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
