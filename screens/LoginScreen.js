@@ -3,7 +3,7 @@ import { View, Text, Button, StyleSheet } from 'react-native'
 
 const LoginScreen = () => {
   return (
-    <View style={}>
+    <View style={styles.container}>
     <Text>Login Screen</Text>
     </View>
   )

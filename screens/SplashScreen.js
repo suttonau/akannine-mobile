@@ -3,8 +3,8 @@ import { View, Text, Button, StyleSheet } from 'react-native'
 
 const SplashScreen = () => {
   return (
-    <View style={}>
-    <Text>Login Screen</Text>
+    <View style={styles.container}>
+    <Text>Splash Screen</Text>
     </View>
   )
 }

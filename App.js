@@ -8,6 +8,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from './screens/HomeScreen'
+import RootStackScreen from './screens/RootStackScreen'
 
 const Stack = createStackNavigator();
 
@@ -19,9 +20,11 @@ export default class App extends React.Component {
   render() {
     return (
       <NavigationContainer>
-        <Stack.Navigator>
+      <RootStackScreen/>
+        {/* <Stack.Navigator>
           <Stack.Screen name="Home" component={HomeScreen} />
         </Stack.Navigator>
+        */}
       </NavigationContainer>
     );
   }
