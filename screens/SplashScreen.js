@@ -18,7 +18,7 @@ const SplashScreen = ({navigation}) => {
         <Text style={styles.title}>Stay connected with Everyone!</Text>
         <Text style={styles.text}>Sign Up or Login!</Text>
         <View style={styles.button}>
-          <TouchableOpacity style={styles.signIn} onPress={() => navigation.navigate('SignUpScreen')}>
+          <TouchableOpacity style={styles.signIn} onPress={() => navigation.navigate('LoginScreen')}>
             <Text style={styles.textSign}>Get Started!</Text>
             <AntDesign name="right" size={15} color="#fff" />
           </TouchableOpacity>
