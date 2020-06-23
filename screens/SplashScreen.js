@@ -1,8 +1,9 @@
 import React from 'react'
 import { View, Text, Button, StyleSheet, Dimensions, Image, TouchableOpacity } from 'react-native'
 // import { LinearGradient } from 'expo-linear-gradient'
+import { AntDesign } from '@expo/vector-icons'
 
-const SplashScreen = () => {
+const SplashScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -17,8 +18,9 @@ const SplashScreen = () => {
         <Text style={styles.title}>Stay connected with Everyone!</Text>
         <Text style={styles.text}>Sign Up or Login!</Text>
         <View style={styles.button}>
-          <TouchableOpacity style={styles.signIn} onPress={() => {alert('Clicked')}}>
+          <TouchableOpacity style={styles.signIn} onPress={() => navigation.navigate('SignUpScreen')}>
             <Text style={styles.textSign}>Get Started!</Text>
+            <AntDesign name="right" size={15} color="#fff" />
           </TouchableOpacity>
         </View>
 
@@ -78,6 +80,7 @@ const styles = StyleSheet.create({
   },
   textSign: {
     color: 'white',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginRight: 5
   }
 })

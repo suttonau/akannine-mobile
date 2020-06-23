@@ -4,7 +4,7 @@ import { View, Text, Button, StyleSheet } from 'react-native'
 const SignUpScreen = () => {
   return (
     <View style={styles.container}>
-    <Text>Splash Screen</Text>
+    <Text>Sign Up Screen</Text>
     </View>
   )
 }
