@@ -1,15 +1,27 @@
 import React from 'react'
-import { View, Text, Button, StyleSheet, Dimensions } from 'react-native'
+import { View, Text, Button, StyleSheet, Dimensions, Image, TouchableOpacity } from 'react-native'
+// import { LinearGradient } from 'expo-linear-gradient'
 
 const SplashScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text>Splash Screen</Text>
+        <Image
+          source={require('../assets/logo.png')}
+          style={styles.logo}
+          resizeMode='contain'
+          />
       </View>
 
       <View style={styles.footer}>
-        <Text>Footer</Text>
+        <Text style={styles.title}>Stay connected with Everyone!</Text>
+        <Text style={styles.text}>Sign Up or Login!</Text>
+        <View style={styles.button}>
+          <TouchableOpacity style={styles.signIn} onPress={() => {alert('Clicked')}}>
+            <Text style={styles.textSign}>Get Started!</Text>
+          </TouchableOpacity>
+        </View>
+
       </View>
     </View>
   )
@@ -18,7 +30,7 @@ const SplashScreen = () => {
 export default SplashScreen
 
 const { height } = Dimensions.get("screen")
-const logoHeight = height * 0.28
+const logoHeight = height * 0.55
 
 const styles = StyleSheet.create({
   container: {
@@ -42,6 +54,11 @@ const styles = StyleSheet.create({
     width: logoHeight,
     height: logoHeight
   },
+  title: {
+    color: '#05375a',
+    fontSize: 25,
+    fontWeight: 'bold',
+  },
   text: {
     color: 'grey',
     marginTop: 5
@@ -51,6 +68,7 @@ const styles = StyleSheet.create({
     marginTop: 30
   },
   signIn: {
+    backgroundColor: '#008080',
     width: 150,
     height: 40,
     justifyContent: 'center',
