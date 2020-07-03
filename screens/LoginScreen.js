@@ -1,9 +1,11 @@
 import React from 'react'
-import { View, Text, Button, StyleSheet, Dimensions, Platform, TextInput } from 'react-native'
+import { View, Text, Button, StyleSheet, Dimensions, Platform, TextInput, TouchableOpacity } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 import { Feather } from '@expo/vector-icons'
+import { AntDesign } from '@expo/vector-icons'
 
-const LoginScreen = () => {
+
+const LoginScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -31,6 +33,12 @@ const LoginScreen = () => {
           secureTextEntry={true}
           />
         </View>
+
+        <View style={styles.button}>
+        <TouchableOpacity style={styles.signIn} onPress={() => navigation.navigate('HomeScreen')}>
+          <Text style={styles.textSign}>Login!</Text>
+        </TouchableOpacity>
+      </View>
       </View>
     </View>
   )
@@ -100,10 +108,12 @@ const styles = StyleSheet.create({
       height: 50,
       justifyContent: 'center',
       alignItems: 'center',
-      borderRadius: 10
+      borderRadius: 10,
+      backgroundColor: '#008080',
   },
   textSign: {
       fontSize: 18,
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      color: '#fff'
   }
 })

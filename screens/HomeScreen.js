@@ -1,8 +1,10 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import MapView from 'react-native-maps';
-import * as Permissions from 'expo-permissions';
-import * as Location from 'expo-location';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
+import MapView from 'react-native-maps'
+import * as Permissions from 'expo-permissions'
+import * as Location from 'expo-location'
+
+import { DestinationButton } from '../components/DestinationButton'
 
 export default class HomeScreen extends React.Component {
   constructor (props) {
@@ -33,7 +35,7 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>HomeScreen</Text>
+        <DestinationButton />
         <MapView
           initialRegion={this.state.region}
           showsUserLocation={true}
