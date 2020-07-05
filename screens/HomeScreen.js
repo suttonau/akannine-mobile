@@ -5,6 +5,7 @@ import * as Permissions from 'expo-permissions'
 import * as Location from 'expo-location'
 
 import { DestinationButton } from '../components/DestinationButton'
+import { CurrentLocationButton } from '../components/CurrentLocationButton'
 
 export default class HomeScreen extends React.Component {
   constructor (props) {
@@ -36,6 +37,7 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <DestinationButton />
+        <CurrentLocationButton />
         <MapView
           initialRegion={this.state.region}
           showsUserLocation={true}
