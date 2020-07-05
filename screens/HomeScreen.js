@@ -33,17 +33,24 @@ export default class HomeScreen extends React.Component {
     this.setState({ region: region })
   }
 
+  centerMap () {
+    const { latitude, longitude, latitudeDelta, longitudeDelta } = this.state.region
+
+    this.map.animateToRegion({ latitude, longitude, latitudeDelta, longitudeDelta })
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <DestinationButton />
-        <CurrentLocationButton />
+        <CurrentLocationButton cb={() => {this.centerMap()} } />
         <MapView
           initialRegion={this.state.region}
           showsUserLocation={true}
           showsCompass={true}
           rotateEnabled={false}
           style={{flex: 1}}
+          ref={(map) => {this.map = map}}
         />
       </View>
     );
