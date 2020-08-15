@@ -6,6 +6,7 @@ import * as Location from 'expo-location'
 
 import { DestinationButton } from '../components/DestinationButton'
 import { CurrentLocationButton } from '../components/CurrentLocationButton'
+import Driver from '../components/Driver'
 
 export default class HomeScreen extends React.Component {
   constructor (props) {
@@ -35,7 +36,6 @@ export default class HomeScreen extends React.Component {
 
   centerMap () {
     const { latitude, longitude, latitudeDelta, longitudeDelta } = this.state.region
-
     this.map.animateToRegion({ latitude, longitude, latitudeDelta, longitudeDelta })
   }
 
@@ -51,7 +51,9 @@ export default class HomeScreen extends React.Component {
           rotateEnabled={false}
           style={{flex: 1}}
           ref={(map) => {this.map = map}}
-        />
+        >
+
+        </MapView>
       </View>
     );
   }
@@ -63,3 +65,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 });
+
+// {        <Driver driver={{uid: 'null', location: {
+//   latitude: 37.78825,
+//   longitude: -122.4324
+// }}} />}
